@@ -1,7 +1,7 @@
 ## What's This?
 Arduino-compatible fork of Sermus's non-Arduino port of modified Adafruit Arduino library for ILI9341-based TFT displays.
 
-You may be wondering: why use this instead of mainline Adafruit_ILI9341? Easy answer: @Sermus's hardware SPI code runs like greased lightning on ESP8266. Very very fast.
+You may be wondering: why use this instead of mainline Adafruit_ILI9341? Easy answer: @Sermus's hardware HSPI code runs like greased lightning on ESP8266. Very very fast.
 
 This library has re-added some standard Adafruit_GFX functions, such as text handling.
 
@@ -42,7 +42,7 @@ You must use these pins:
 
 ## Wiring
 
-The code uses hardware SPI with hardware controlled CS, so this wiring must be used:
+The code uses hardware HSPI with hardware controlled CS, so this wiring must be used:
 
 ILI9341 pin -->	ESP8266 pin
 
