@@ -67,7 +67,7 @@ MISO may be left unconnected
 
 * The read commands are not implemented. If you need to read the status registers from the LCD, the regular [Adafruit_ILI9341](https://github.com/adafruit/Adafruit_ILI9341) may be the best bet.
 * Have not tested fonts. Give it a try and let me know how it goes.
-* Your LCD may not be compatible with the default speed; see ["SPI speed"](#SPI_speed) below.
+* Your LCD may not be compatible with the default speed; see ["SPI speed"](#spi-speed) below.
 * It will fail for non-ESP8266 environments.
 * You must use the hardware SPI pins.
 * Only tested with Arduino 1.6.9 and ESP8266 core 2.3.0.
