@@ -1,5 +1,7 @@
 ## Credits
-Port of modified Adafruit library for ILI9341-based TFT displays.
+Arduino-compatible fork of port of modified Adafruit library for ILI9341-based TFT displays.
+
+Original port: https://github.com/Sermus/ESP8266_Adafruit_ILI9341
 
 Original lib: https://github.com/adafruit/Adafruit_ILI9341
 

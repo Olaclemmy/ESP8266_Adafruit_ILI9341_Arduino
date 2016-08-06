@@ -77,7 +77,7 @@ extern "C"
 #define	ILI9341_GREEN   0x07E0
 #define ILI9341_CYAN    0x07FF
 #define ILI9341_MAGENTA 0xF81F
-#define ILI9341_YELLOW  0xFFE0  
+#define ILI9341_YELLOW  0xFFE0
 #define ILI9341_WHITE   0xFFFF
 
 #define TFT_DC_DATA		GPIO_OUTPUT_SET(2, 1)
@@ -89,6 +89,12 @@ extern "C"
 #define TFT_RST_INIT		PIN_FUNC_SELECT(PERIPHS_IO_MUX_GPIO4_U, FUNC_GPIO4); TFT_RST_DEACTIVE
 
 #define MAKEWORD(b1, b2, b3, b4) (uint32_t(b1) | ((b2) << 8) | ((b3) << 16) | ((b4) << 24))
+
+extern "C" {
+
+  void ets_delay_us(int ms);
+
+}
 
 class Adafruit_ILI9341 : public Adafruit_GFX_AS {
 
@@ -112,6 +118,9 @@ public:
              uint16_t color),
            setRotation(uint8_t r),
            invertDisplay(bool i);
+
+ uint8_t  readdata(void),
+             readcommand8(uint8_t reg, uint8_t index = 0);
   inline void setAddrWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1)
   {	  transmitCmdData(ILI9341_CASET, MAKEWORD(x0 >> 8, x0 & 0xFF, x1 >> 8, x1 & 0xFF));
   	  transmitCmdData(ILI9341_PASET, MAKEWORD(y0 >> 8, y0 & 0xFF, y1 >> 8, y1 & 0xFF));
@@ -119,5 +128,7 @@ public:
   }
   uint16_t color565(uint8_t r, uint8_t g, uint8_t b);
 };
+
+void ets_delay_us(int ms);
 
 #endif

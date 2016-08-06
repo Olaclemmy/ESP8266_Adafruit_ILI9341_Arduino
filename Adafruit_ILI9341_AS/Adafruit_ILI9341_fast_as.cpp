@@ -6,7 +6,6 @@ extern "C"{
 #include <os_type.h>
 #include <osapi.h>
 #include "hspi.h"
-#include "espmissingincludes.h"
 }
 
 #define SWAPBYTES(i) ((i>>8) | (i<<8))
@@ -141,6 +140,45 @@ ICACHE_FLASH_ATTR void Adafruit_ILI9341::begin(void) {
 	transmitCmd(0x29);    //Display on
 	transmitCmd(0x2c);
 }
+
+
+ uint8_t Adafruit_ILI9341::readdata(void) {
+	 /*
+   digitalWrite(_dc, HIGH);
+   digitalWrite(_cs, LOW);
+   uint8_t r = spiread();
+   digitalWrite(_cs, HIGH);
+*/
+uint8_t r=0;
+   return r;
+}
+
+
+uint8_t Adafruit_ILI9341::readcommand8(uint8_t c, uint8_t index) {
+   /*if (hwSPI) spi_begin();
+   digitalWrite(_dc, LOW); // command
+   digitalWrite(_cs, LOW);
+   spiwrite(0xD9);  // woo sekret command?
+   digitalWrite(_dc, HIGH); // data
+   spiwrite(0x10 + index);
+   digitalWrite(_cs, HIGH);
+
+   digitalWrite(_dc, LOW);
+   digitalWrite(_sclk, LOW);
+   digitalWrite(_cs, LOW);
+   spiwrite(c);
+
+   digitalWrite(_dc, HIGH);
+   uint8_t r = spiread();
+   digitalWrite(_cs, HIGH);
+   if (hwSPI) spi_end();
+	 */
+	 uint8_t r=0;
+
+   return r;
+}
+
+
 
 void Adafruit_ILI9341::drawPixel(int16_t x, int16_t y, uint16_t color) {
 
