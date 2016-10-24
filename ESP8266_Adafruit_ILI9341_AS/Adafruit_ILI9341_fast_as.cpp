@@ -179,7 +179,15 @@ uint8_t Adafruit_ILI9341::readcommand8(uint8_t c, uint8_t index) {
 }
 
 
+void Adafruit_ILI9341::setAddrWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1)
+{	  transmitCmdData(ILI9341_CASET, MAKEWORD(x0 >> 8, x0 & 0xFF, x1 >> 8, x1 & 0xFF));
+		transmitCmdData(ILI9341_PASET, MAKEWORD(y0 >> 8, y0 & 0xFF, y1 >> 8, y1 & 0xFF));
+	transmitCmd(ILI9341_RAMWR); // write to RAM
+}
 
+void Adafruit_ILI9341::pushColor(uint16_t color) {
+	transmitData(color);
+}
 void Adafruit_ILI9341::drawPixel(int16_t x, int16_t y, uint16_t color) {
 
 	if((x < 0) ||(x >= _width) || (y < 0) || (y >= _height)) return;
