@@ -186,7 +186,7 @@ void Adafruit_ILI9341::setAddrWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint
 }
 
 void Adafruit_ILI9341::pushColor(uint16_t color) {
-	transmitData(color);
+	transmitData(SWAPBYTES(color));
 }
 void Adafruit_ILI9341::drawPixel(int16_t x, int16_t y, uint16_t color) {
 
